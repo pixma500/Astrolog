@@ -1,0 +1,23 @@
+{% extends "star/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <hr class="mt-0 mb-4">
+
+
+    <h2>Мой день:</h2>
+
+  <form action="{% url 'star:new_post' %}" method="post">
+    {% csrf_token %}
+    <table>{{ form|crispy }}</table>
+    <button type="submit">Отправить</button>
+  </form>
+      </div>
+</div>
+</div>
+    </div>
+
+      {% endblock %}

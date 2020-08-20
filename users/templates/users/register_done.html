@@ -1,0 +1,14 @@
+{% extends 'star/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<h1>Привет {{ new_user.username }}!</h1>
+
+
+
+<h1>Edit your account</h1>
+<p>You can edit your account using the following form:</p>
+<a href="{% url 'users:edit' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+
+{% endblock %}

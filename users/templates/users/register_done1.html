@@ -1,0 +1,30 @@
+{% extends 'star/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Welcome{% endblock %}
+{% block content %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <hr class="mt-0 mb-4">
+            <h1>Привет {{ user.username}}!</h1>
+<h1>Добавте информации о себе</h1>
+<p>Важна каждая деталь:</p>
+<form action="." method="post" enctype="multipart/form-data">
+{{ user_form|crispy}}
+{{ profile_form|crispy }}
+{% csrf_token %}
+<p><input type="submit" value="Добаить"></p>
+</form>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+{% endblock %}

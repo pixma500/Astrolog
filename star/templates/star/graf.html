@@ -1,0 +1,41 @@
+
+
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+<div id="container" style="height: 400px; min-width: 310px"></div>
+<script>
+Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
+ var title = {{ title|safe }}
+
+  // Create the chart
+  Highcharts.stockChart('container', {
+
+
+    rangeSelector: {
+      selected: 1
+    },
+
+    title: {{ title|safe }},
+
+    series: [{
+      name: 'AAPL Stock Price',
+      data: [
+
+                [Date.UTC(2020, 2, 1), 71.5],
+                [Date.UTC(2020, 3, 1), 106.4]
+            ],
+      marker: {
+        enabled: true,
+        radius: 3
+      },
+      shadow: true,
+      tooltip: {
+        valueDecimals: 2
+      }
+    }]
+  });
+});
+</script>
